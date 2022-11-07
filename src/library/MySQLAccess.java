@@ -21,9 +21,10 @@ public class MySQLAccess {
         	Connection con=DriverManager.getConnection(  
         	"jdbc:mysql://localhost:3306/library?characterEncoding=latin1&autoReconnect=true","root","password");  
         	Statement stmt=con.createStatement();  
-        	ResultSet rs=stmt.executeQuery("SELECT * FROM admin");  
+        	ResultSet rs=stmt.executeQuery("SELECT * FROM book");  
         	while(rs.next())  
-        		System.out.println(rs.getString(1)+"  "+rs.getString(2));  
+        		System.out.println(rs.getInt(1)+"  "+rs.getString(2) +"  "+rs.getString(3)
+        		+"  "+rs.getString(4) +"  "+rs.getString(5));  
         		con.close();  
         }
 

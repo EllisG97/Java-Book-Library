@@ -8,6 +8,11 @@ public class Login {
 
 		MySQLAccess dao = new MySQLAccess();
 		dao.readDataBase();
+		loginUI();
+
+	}
+	
+	public static void loginUI() {
 		
 		 JFrame f=new JFrame(); 
 		 JButton login=new JButton("Login");
@@ -43,5 +48,6 @@ public class Login {
 		 f.setSize(750,500); 
 		 f.setLayout(null);//using no layout managers
 		 f.setVisible(true);//making the frame visible
+		
 	}
 }
