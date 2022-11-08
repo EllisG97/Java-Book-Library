@@ -25,8 +25,6 @@ public class UserRegistration extends JFrame {
 	    public static void registrationForm() {
 	    	
 	    	JFrame f=new JFrame(); 
-	    	
-		    JPanel contentPane;
 		    JTextField email;
 		    JTextField username;
 		    JPasswordField passwordField;
@@ -43,21 +41,66 @@ public class UserRegistration extends JFrame {
 		    f.add(lblNewUserRegister);
 		    
 	        JLabel lblName = new JLabel("Username: ");
-	        lblName.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-	        lblName.setBounds(58, 50, 110, 43);
+	        lblName.setBounds(58, 75, 110, 43);
 	        f.add(lblName);
 	        
+	        username = new JTextField();
+	        username.setBounds(150, 80,200, 30);
+	        f.add(username);
+	        
 	        JLabel lblPassword = new JLabel("Password: ");
-	        lblPassword.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-	        lblPassword.setBounds(58, 100, 110, 29);
+	        lblPassword.setBounds(58, 125, 110, 29);
 	        f.add(lblPassword);
 	        
+	        passwordField = new JPasswordField();
+	        passwordField.setBounds(150, 130,200, 30);
+	        f.add(passwordField);
+	        
 	        JLabel lblEmailAddress = new JLabel("Email Address: ");
-	        lblEmailAddress.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-	        lblEmailAddress.setBounds(58, 150, 200, 36);
+	        lblEmailAddress.setBounds(58, 175, 200, 36);
 	        f.add(lblEmailAddress);
 	        
+	        email = new JTextField();
+	        email.setBounds(150, 180,200, 30);
+	        f.add(email);
+	        
 	        btnRegister = new JButton("Register");
+	        
+	        btnRegister.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	                String name = username.getText();
+	                String emailId = email.getText();
+	                String password = passwordField.getText();
+
+	                String msg = "" + name;
+	                msg += " \n";
+
+
+	                try {
+	                    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/library?characterEncoding=latin1&autoReconnect=true", "root", "password");
+
+	                    String query = "INSERT INTO users VALUES('" + name + "','" + password + "','" + emailId + "')";
+
+	                    Statement sta = connection.createStatement();
+	                    int x = sta.executeUpdate(query);
+	                    if (x == 0) {
+	                        JOptionPane.showMessageDialog(btnRegister, "This user already exists");
+	                    } else {
+	                        JOptionPane.showMessageDialog(btnRegister,
+	                            "Welcome, " + msg + " Your account has been successfully created");
+	                    }
+	                    connection.close();
+	                } catch (Exception exception) {
+	                    exception.printStackTrace();
+	                }
+	            }
+	        });
+	        
+	        
+	        btnRegister.setFont(new Font("Times New Roman", Font.PLAIN, 22));
+	        btnRegister.setBounds(400, 300, 200, 60);
+	        f.add(btnRegister);
+	        
 	        
 	        btnExit = new JButton("Exit");
 	        
@@ -69,7 +112,7 @@ public class UserRegistration extends JFrame {
 				}
 			});
 	        
-	        btnExit.setFont(new Font("imes New Roman", Font.PLAIN, 22));
+	        btnExit.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 	        btnExit.setBounds(50, 300, 200, 60);
 	        f.add(btnExit);
 
