@@ -1,5 +1,9 @@
 package library;
 
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class Login {
@@ -26,10 +30,13 @@ public class Login {
 		 
 		 username = new JTextField(" ");
 		 password = new JPasswordField("");
+		 password.setToolTipText("Enter your Password"); 
 		 
 		 JButton register = new JButton("Register");
 		 
-		 welcome.setBounds(250, 15, 300, 30);
+		 welcome.setFont(new Font("Times New Roman", Font.PLAIN, 32));
+		 
+		 welcome.setBounds(150, 15, 600, 30);
 		 login.setBounds(300,200,100, 40);//x axis, y axis, width, height
 		 username.setBounds(270, 100, 200, 30);
 		 nameLabel.setBounds(170, 100, 100, 30);
@@ -48,6 +55,18 @@ public class Login {
 		 f.setSize(750,500); 
 		 f.setLayout(null);//using no layout managers
 		 f.setVisible(true);//making the frame visible
+		 
+		f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		f.getContentPane().add(register);
+		 
+		 
+		register.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent ae) {
+					f.dispose();
+					new UserRegistration();
+					UserRegistration.registrationForm();
+				}
+			});
 		
 	}
 }
