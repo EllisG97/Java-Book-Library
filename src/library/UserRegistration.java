@@ -97,7 +97,7 @@ public class UserRegistration extends JFrame {
 	        });
 	        
 	        
-	        btnRegister.setFont(new Font("Times New Roman", Font.PLAIN, 22));
+	        //btnRegister.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 	        btnRegister.setBounds(400, 300, 200, 60);
 	        f.add(btnRegister);
 	        
@@ -112,7 +112,7 @@ public class UserRegistration extends JFrame {
 				}
 			});
 	        
-	        btnExit.setFont(new Font("Times New Roman", Font.PLAIN, 22));
+	        //btnExit.setFont(new Font("Times New Roman", Font.PLAIN, 22));
 	        btnExit.setBounds(50, 300, 200, 60);
 	        f.add(btnExit);
 
