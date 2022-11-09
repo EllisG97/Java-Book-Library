@@ -30,6 +30,8 @@ public class Login {
 		 JPasswordField password;
 		 JLabel nameLabel, passLabel, welcome;
 		 
+		 f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 
 		 nameLabel = new JLabel("Username: ");
 		 passLabel = new JLabel("Password: ");
 		 welcome = new JLabel("Welcome to Castle Rock Library!");
