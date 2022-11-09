@@ -24,7 +24,11 @@ public class BookSearch {
 	
 	static JFrame f = new JFrame();
 
+
 	public static void searchPage() {
+		
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		JLabel lblSearch, lblWelcome;
 		JButton btnExit = new JButton("Exit");
 		JButton btnSearch = new JButton("Search");
@@ -71,13 +75,6 @@ public class BookSearch {
 
 			}
 		});
-
-		/*
-		 * JScrollPane scrollPane = new JScrollPane(); scrollPane.setBounds(50, 300,
-		 * 600, 200); f.add(scrollPane);
-		 */
-
-		GetBooks obj = new GetBooks();
 
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
