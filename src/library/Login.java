@@ -36,8 +36,8 @@ public class Login {
 		 passLabel = new JLabel("Password: ");
 		 welcome = new JLabel("Welcome to Castle Rock Library!");
 		 
-		 username = new JTextField("");
-		 password = new JPasswordField("");
+		 username = new JTextField("amie");
+		 password = new JPasswordField("amiekirby");
 		 password.setToolTipText("Enter your Password"); 
 		 
 		 JButton register = new JButton("Register");
