@@ -34,7 +34,7 @@ public class Login {
 		 passLabel = new JLabel("Password: ");
 		 welcome = new JLabel("Welcome to Castle Rock Library!");
 		 
-		 username = new JTextField(" ");
+		 username = new JTextField("");
 		 password = new JPasswordField("");
 		 password.setToolTipText("Enter your Password"); 
 		 
@@ -81,6 +81,9 @@ public class Login {
 	                    ResultSet rs = (ResultSet) st.executeQuery();
 	                    if (rs.next()) {
 	                        JOptionPane.showMessageDialog(btnLogin, "You have successfully logged in");
+	                        f.dispose();
+	                        new BookSearch();
+	                        BookSearch.searchPage();
 	                    } else {
 	                        JOptionPane.showMessageDialog(btnLogin, "Wrong Username & Password");
 	                    }
